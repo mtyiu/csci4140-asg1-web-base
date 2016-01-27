@@ -26,7 +26,7 @@ RUN mkdir /etc/phpmyadmin/save
 RUN chown -R www-data:www-data /etc/phpmyadmin
 
 RUN echo "<?php \$cfg['blowfish_secret']='$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)'; ?>" > /etc/phpmyadmin/config.secret.inc.php
-COPY config.inc.php /etc/phpmyadmin
+COPY config.inc.php /etc/phpmyadmin/
 
 EXPOSE 80
 
